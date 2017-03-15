@@ -1,0 +1,54 @@
+{
+  "private": true,
+  "name": "esbin",
+  "productionName": "ESBIN",
+  "description": "JavaScript debugging made simple.",
+  "version": "0.0.0",
+  "repository": {},
+  "scripts": {
+    "test": "echo lol",
+    "app": "electron app/",
+    "dist": "npm run dist:mac && npm run dist:win && npm run dist:linux",
+    "dist:mac": "build --mac",
+    "dist:win": "build --win --ia32",
+    "dist:linux": "build --linux deb tar.xz",
+    "postinstall": "install-app-deps",
+    "lint": "vbuild --eslint",
+    "dev": "vbuild -d",
+    "build": "vbuild"
+  },
+  "build": {
+    "appId": "com.egoistian.devdocs-app",
+    "asar": true,
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "linux": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false
+    }
+  },
+  "devDependencies": {
+    "electron": "^1.4.15",
+    "electron-builder": "^15.0.0",
+    "electron-builder-squirrel-windows": "^15.3.0",
+    "electron-devtools-installer": "^2.0.0",
+    "postcss-property-lookup": "^1.2.1",
+    "raw-loader": "^0.5.1",
+    "vbuild": "^6.24.5"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "codemirror": "^5.24.2",
+    "pify": "^2.3.0",
+    "vue-inline": "^1.0.1",
+    "vuex": "^2.2.1"
+  }
+}

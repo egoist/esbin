@@ -1,0 +1,8 @@
+node_modules
+*.log
+.DS_Store
+app/yarn.lock
+
+# produced by vbuild
+dist
+
