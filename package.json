@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "esbin",
-  "productionName": "ESBIN",
+  "productName": "ESBIN",
   "description": "JavaScript debugging made simple.",
   "version": "0.0.0",
   "repository": {},
@@ -42,7 +42,7 @@
     "electron-devtools-installer": "^2.0.0",
     "postcss-property-lookup": "^1.2.1",
     "raw-loader": "^0.5.1",
-    "vbuild": "^6.24.5"
+    "vbuild": "^6.24.6"
   },
   "license": "MIT",
   "dependencies": {

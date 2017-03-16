@@ -1,7 +1,7 @@
 {
   "name": "esbin",
   "productName": "ESBIN",
-  "description": "Electron app built with vbuild",
+  "description": "JavaScript debugging made simple.",
   "version": "0.0.0",
   "repository": {},
   "dependencies": {
