@@ -8,6 +8,7 @@ module.exports = function ({
   paths
 } = {}) {
   return {
+    devtool: 'eval-source-map',
     entry: {
       client: [
         path.join(__dirname, 'dev-client.es6'),
