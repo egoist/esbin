@@ -1,6 +1,6 @@
 {
   "name": "esbin",
-  "productionName": "esbin",
+  "productName": "ESBIN",
   "description": "Electron app built with vbuild",
   "version": "0.0.0",
   "repository": {},

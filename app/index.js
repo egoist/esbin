@@ -12,6 +12,7 @@ const getPort = require('get-port')
 const isDev = require('electron-is-dev')
 require('electron-context-menu')()
 
+const appMenu = require('./menu')
 const config = require('./config')
 const startServer = require('./start-server')
 
@@ -93,6 +94,7 @@ function createWindow (port) {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
+  electron.Menu.setApplicationMenu(appMenu)
   getPort()
     .then(port => {
         mainWindow = createWindow(port)

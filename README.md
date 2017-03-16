@@ -2,18 +2,10 @@
 
 JavaScript debugging made simple.
 
-
 ## Folder structure
 
-- `src/`: App files
-  - `components/`: Components directory
-  - `index.js`: App entry file
-- `app/`: Electron app files for main process
-  - `index.js`: Electron app main process entry
-- `vbuild.config.js`: Config file for vbuild
-- `package.json`: App manifest
-- `.editorconfig`: Ensure consistent editor behaivor
-- `.gitignore`: Ignore files we don't need to push
+- `app/`: Main process, written with native ES6 support
+- `src/`: Renderer process, bundle with Webpack
 
 ## Development
 
