@@ -15,6 +15,7 @@ You may also like [jsbin](https://jsbin.com) or [webpackbin](http://webpackbin.c
 ## Notes
 
 - `HTML` and `CSS` are saved on the fly, for `JS` you need to press `cmd/ctrl+s` manually to save it.
+- No `auto install` support, you can install deps in bin directory manually for now.
 
 ## Folder structure
 
@@ -23,8 +24,11 @@ You may also like [jsbin](https://jsbin.com) or [webpackbin](http://webpackbin.c
 
 ## Development
 
+Basically you need to run `yarn dev` in a tab and run `yarn app` in another tab:
+
 - `yarn dev`: Run in development mode
 - `yarn build`: Build in production mode
+- `yarn app`: Open Electron app
 - `yarn lint`: Run eslint
 - `yarn dist`: Distribute Electron app for mac/windows/linux
 - `yarn dist:mac`: Distribute Electron app for mac
