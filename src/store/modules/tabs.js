@@ -1,6 +1,6 @@
 export const state = {
   html: {
-    visible: true
+    visible: false
   },
   js: {
     visible: true

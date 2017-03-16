@@ -5,6 +5,11 @@
       v-show="isVisible('html')"
       :content="files.html">
     </block-html>
+    <block-css
+      class="main__block"
+      v-show="isVisible('css')"
+      :content="files.css">
+    </block-css>
     <block-js
       class="main__block"
       v-show="isVisible('js')"
@@ -14,6 +19,10 @@
       v-show="isVisible('output')"
       class="main__block">
     </block-output>
+    <block-console
+      v-show="isVisible('console')"
+      class="main__block">
+    </block-console>
   </section>
 </template>
 
@@ -22,6 +31,8 @@
   import BlockHtml from '@/components/blocks/Html'
   import BlockJs from '@/components/blocks/Js'
   import BlockOutput from '@/components/blocks/Output'
+  import BlockCss from '@/components/blocks/Css'
+  import BlockConsole from '@/components/blocks/Console'
 
   export default {
     props: ['files'],
@@ -36,7 +47,9 @@
     components: {
       BlockHtml,
       BlockJs,
-      BlockOutput
+      BlockOutput,
+      BlockCss,
+      BlockConsole
     }
   }
 </script>
@@ -44,14 +57,25 @@
 <style src="codemirror/lib/codemirror.css"></style>
 
 <style>
+  .CodeMirror-gutters {
+    background-color: transparent;
+    border-right: none;
+  }
+</style>
+
+<style>
   .main {
     height: calc(100% - 40px);
     display: flex;
   }
 
-  .main__block,
-  .CodeMirror {
+  .main__block {
     height: 100%;
+    background-color: transparent;
+  }
+
+  .CodeMirror {
+    height: calc(100% - 30px);
     background-color: transparent;
   }
 
@@ -66,5 +90,13 @@
 
   .main__block--focus {
     background-color: white;
+  }
+
+  .block__header {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    font-size: 13px;
   }
 </style>

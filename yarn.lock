@@ -3494,6 +3494,12 @@ nan@^2.3.0:
   version "2.5.1"
   resolved "https://registry.npmjs.org/nan/-/nan-2.5.1.tgz#d5b01691253326a97a2bbee9e61c55d8d60351e2"
 
+native-toast@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/native-toast/-/native-toast-1.1.0.tgz#f9c55354653045c5f8889d18382b8aa06146e809"
+  dependencies:
+    object-assign "^4.1.1"
+
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"

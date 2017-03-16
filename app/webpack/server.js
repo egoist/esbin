@@ -2,12 +2,12 @@ const path = require('path')
 const webpack = require('webpack')
 const express = require('express')
 
-module.exports = function (compiler) {
+module.exports = function (compiler, options) {
   const app = express()
 
   const devMiddleWare = require('webpack-dev-middleware')(compiler, {
     publicPath: compiler.options.output.publicPath,
-    path: `http://localhost:5428/__webpack_hmr`,
+    path: `http://localhost:${options.port}/__webpack_hmr`,
     stats: 'minimal'
   })
 

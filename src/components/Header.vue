@@ -1,7 +1,21 @@
 <template>
   <header class="header">
-    <div class="header__logo">
-      <button>Copy path to bin</button>
+    <div class="header__actions">
+      <button @click="toggleActions">
+        {{ showActions ? 'Hide Actions' : 'Show Actions' }}
+      </button>
+      <ul class="header__actions__list" v-show="showActions">
+        <li
+          class="header__action"
+          @click="copyBinDir">
+          Copy path to bin directory
+        </li>
+        <li
+          class="header__action"
+          @click="openDefaultBrowser">
+          Open in default browser
+        </li>
+      </ul>
     </div>
 
     <div class="header__tabs">
@@ -31,7 +45,7 @@
       </div>
       <div
         class="header__tab"
-        :class="{'header__tab--active': isActive('console')}"
+        :class="{'header__tab--visible': isActive('console')}"
         @click="toggleTab('console')">
         Console
       </div>
@@ -43,17 +57,39 @@
 </template>
 
 <script>
+  import { clipboard, shell } from 'electron'
   import { mapState, mapGetters, mapActions } from 'vuex'
+  import toast from 'native-toast'
 
   export default {
+    data() {
+      return {
+        showActions: false
+      }
+    },
     computed: {
       ...mapState(['tabs']),
-      ...mapGetters(['paths'])
+      ...mapGetters(['paths', 'port'])
     },
     methods: {
       ...mapActions(['toggleTab']),
       isActive(tabName) {
         return this.tabs[tabName].visible
+      },
+      copyBinDir() {
+        clipboard.writeText(this.paths.binDir)
+        toast({
+          type: 'success',
+          message: `Copied: "${this.paths.binDir}"`,
+          edge: true,
+          position: 'top'
+        })
+      },
+      openDefaultBrowser() {
+        shell.openExternal(`http://localhost:${this.port}`)
+      },
+      toggleActions() {
+        this.showActions = !this.showActions
       }
     }
   }
@@ -66,12 +102,38 @@
     align-items: center;
     background-color: #f0f0f0;
     height: 40px;
-    padding: 0 10px;
+    padding: 0 5px;
     border-bottom: 1px solid #e2e2e2;
   }
 
   .header>div {
     flex: 1;
+  }
+
+  .header__actions {
+    position: relative;
+  }
+
+  .header__actions__list {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    padding-left: 0;
+    background-color: white;
+    margin: 0;
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.1);
+    border-top: none;
+    z-index: 9999;
+  }
+
+  .header__action {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .header__action:hover {
+    background-color: #f9f9f9;
   }
 
   .header__tabs {

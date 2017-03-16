@@ -47,6 +47,7 @@
   "license": "MIT",
   "dependencies": {
     "codemirror": "^5.24.2",
+    "native-toast": "^1.1.0",
     "pify": "^2.3.0",
     "vue-inline": "^1.0.1",
     "vuex": "^2.2.1"

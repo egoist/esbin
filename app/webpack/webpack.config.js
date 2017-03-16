@@ -2,6 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+process.env.BABEL_ENV = 'development'
+
 module.exports = function ({
   paths
 } = {}) {
@@ -51,9 +53,7 @@ module.exports = function ({
         options: {
           babel: {
             presets: [
-              [require('babel-preset-env').default, {
-                modules: false
-              }]
+              require.resolve('babel-preset-react-app')
             ]
           }
         }

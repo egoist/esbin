@@ -1,5 +1,5 @@
 import 'eventsource-polyfill'
-import hotClient from 'webpack-hot-middleware/client?reload=true'
+import hotClient from 'webpack-hot-middleware/client?reload=true&noInfo=true'
 
 document.addEventListener('click', () => {
   window.parent.postMessage({

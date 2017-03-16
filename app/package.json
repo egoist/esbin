@@ -7,7 +7,7 @@
   "dependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.0",
-    "babel-preset-env": "^1.2.1",
+    "babel-preset-react-app": "^2.2.0",
     "css-loader": "^0.27.3",
     "electron-config": "^0.2.1",
     "electron-context-menu": "^0.8.0",
@@ -15,6 +15,7 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.15.2",
     "fs-promise": "^2.0.0",
+    "get-port": "^3.0.0",
     "html-webpack-plugin": "^2.28.0",
     "style-loader": "^0.14.0",
     "webpack": "^2.2.1",

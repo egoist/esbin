@@ -56,3 +56,5 @@
     box-sizing: border-box;
   }
 </style>
+
+<style src="native-toast/dist/native-toast.css"></style>

@@ -8,6 +8,7 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 
 const fs = require('fs-promise')
+const getPort = require('get-port')
 const isDev = require('electron-is-dev')
 require('electron-context-menu')()
 
@@ -33,10 +34,10 @@ if (isAlreadyRunning) {
   app.quit()
 }
 
-function createWindow () {
+function createWindow (port) {
   // Create a tmp dir for prototyping
   const seed = path.join(__dirname, 'seed')
-  const binDir = path.join(os.homedir(), '.esbin/bins', `esbin-${Date.now()}`)
+  const binDir = path.join(os.tmpdir(), `esbin-${Date.now()}`)
   fs.ensureDirSync(binDir)
   fs.copySync(seed, binDir)
   console.log(`Copied seed project to ${binDir}`)
@@ -55,7 +56,8 @@ function createWindow () {
     paths: {
       binDir,
       appDir: __dirname
-    }
+    },
+    port
   }
 
   startServer(win.$data)
@@ -91,8 +93,11 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
-  mainWindow = createWindow()
-  mainWindow.show()
+  getPort()
+    .then(port => {
+        mainWindow = createWindow(port)
+        mainWindow.show()
+    })
 })
 
 app.on('before-quit', () => {

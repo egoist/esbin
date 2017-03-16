@@ -2,6 +2,9 @@
   <div
     class="main__html"
     :class="{'main__block--focus': focus}">
+    <div class="block__header">
+      HTML
+    </div>
     <textarea ref="textarea">{{ content }}</textarea>
   </div>
 </template>
@@ -9,6 +12,8 @@
 <script>
   import path from 'path'
   import CodeMirror from 'codemirror'
+  import 'codemirror/addon/selection/active-line'
+  import 'codemirror/addon/edit/matchtags'
   import 'codemirror/mode/htmlmixed/htmlmixed'
   import fs from 'fs-promise'
   import { mapGetters } from 'vuex'
@@ -16,6 +21,7 @@
   import toggleFocusMixin from '@/mixins/toggle-focus'
 
   export default {
+    blockType: 'html',
     props: ['content'],
     mixins: [toggleFocusMixin],
     mounted() {
@@ -27,7 +33,11 @@
     methods: {
       setupEditor() {
         this.editor = CodeMirror.fromTextArea(this.$refs.textarea, {
-          mode: 'htmlmixed'
+          mode: 'htmlmixed',
+          lineNumbers: true,
+          lineWrapping: true,
+          styleActiveLine: true,
+          matchTags: { bothTags: true }
         })
 
         this.editor.setOption('extraKeys', {
