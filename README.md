@@ -12,6 +12,10 @@
 
 You may also like [jsbin](https://jsbin.com) or [webpackbin](http://webpackbin.com), this is like jsbin and webpackbin had a baby and works offline.
 
+## Notes
+
+- `HTML` and `CSS` are saved on the fly, for `JS` you need to press `cmd/ctrl+s` manually to save it.
+
 ## Folder structure
 
 - `app/`: Main process, written with native ES6 support
